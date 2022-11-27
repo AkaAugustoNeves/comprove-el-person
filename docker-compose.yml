@@ -9,6 +9,22 @@ services:
     networks:
       - ms_comprove_el_person
 
+  db_storage:
+    container_name: db_storage
+    image: postgres
+    environment:
+      - POSTGRES_DB=db_storage
+      - POSTGRES_USER=STORAGE
+      - POSTGRES_PASSWORD=STORAGE
+      - PGDATA=/data/postgres
+    volumes:
+      - ./V_db_storage:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - db_comprove_el_person
+    restart: unless-stopped
+
 networks:
   db_comprove_el_person:
     driver: bridge
