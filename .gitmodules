@@ -1,3 +1,6 @@
 [submodule "ms-eureka"]
 	path = ms-eureka
 	url = https://github.com/AkaAugustoNeves/ms-eureka.git
+[submodule "ms-storage"]
+	path = ms-storage
+	url = https://github.com/AkaAugustoNeves/ms-storage
