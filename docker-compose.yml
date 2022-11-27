@@ -25,6 +25,26 @@ services:
       - db_comprove_el_person
     restart: unless-stopped
 
+  ms-storage:
+    container_name: ms-storage
+    build: ./ms-storage
+    ports:
+      - 8081:8081
+    environment:
+      - EUREKA_URL=http://ms-eureka:8761/eureka
+      - DB_STORAGE_URL=jdbc:postgresql://db_storage:5432/db_storage
+      - DB_STORAGE_USERNAME=STORAGE
+      - DB_STORAGE_PASSWORD=STORAGE
+      - BASE_PATH_COMPROVE_PERSON_STORAGE=/app/volume/
+    working_dir: /app
+    volumes:
+      - ./V_ms_storage:/app/volume/
+    networks:
+      - ms_comprove_el_person
+      - db_comprove_el_person
+    depends_on:
+      - db_storage
+
 networks:
   db_comprove_el_person:
     driver: bridge
