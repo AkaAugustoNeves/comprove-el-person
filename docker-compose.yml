@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  ms-eureka:
+    container_name: ms-eureka
+    build: ./ms-eureka
+    ports:
+      - 8761:8761
+    working_dir: /app
+    networks:
+      - ms_comprove_el_person
+
+networks:
+  db_comprove_el_person:
+    driver: bridge
+  ms_comprove_el_person:
+    driver: bridge
