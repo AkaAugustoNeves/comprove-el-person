@@ -45,6 +45,22 @@ services:
     depends_on:
       - db_storage
 
+  db_person:
+    container_name: db_person
+    image: postgres
+    environment:
+      - POSTGRES_DB=db_person
+      - POSTGRES_USER=PERSON
+      - POSTGRES_PASSWORD=PERSON
+      - PGDATA=/data/postgres
+    volumes:
+      - ./V_db_person:/data/postgres
+    ports:
+      - "5433:5432"
+    networks:
+      - db_comprove_el_person
+    restart: unless-stopped
+
 networks:
   db_comprove_el_person:
     driver: bridge
