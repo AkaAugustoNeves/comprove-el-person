@@ -4,3 +4,6 @@
 [submodule "ms-storage"]
 	path = ms-storage
 	url = https://github.com/AkaAugustoNeves/ms-storage
+[submodule "ms-person"]
+	path = ms-person
+	url = https://github.com/AkaAugustoNeves/ms-person
